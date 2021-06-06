@@ -2,6 +2,14 @@
 #include "SDigLedDisplay.h"
 #include <math.h>
 
+#define SLDD_LED_A 2
+#define SLDD_LED_B 3
+#define SLDD_LED_C 4
+#define SLDD_LED_D 7
+#define SLDD_LED_E 8
+#define SLDD_LED_F 12
+#define SLDD_LED_G 13
+
 const int AirValue = 580;   //you need to replace this value with Value_1
 const int WaterValue = 270;  //you need to replace this value with Value_2
 
@@ -10,7 +18,13 @@ SDigLedDisplay ledDisplay;
 void setup() {
     Serial.begin(9600); // open serial port, set the baud rate to 9600 bps
     pinMode(A0, INPUT);
-    ledDisplay.setup();
+    ledDisplay.setup(SLDD_LED_A,
+                     SLDD_LED_B,
+                     SLDD_LED_C,
+                     SLDD_LED_D,
+                     SLDD_LED_E,
+                     SLDD_LED_F,
+                     SLDD_LED_G);
 }
 void loop() {
   int soilMoistureValue = 0;

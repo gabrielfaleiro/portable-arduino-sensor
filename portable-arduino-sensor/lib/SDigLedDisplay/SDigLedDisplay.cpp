@@ -1,23 +1,36 @@
 
 #include "SDigLedDisplay.h"
 
-void SDigLedDisplay::setup(){
-    pinMode(SLDD_LED_A, OUTPUT);
-    pinMode(SLDD_LED_B, OUTPUT);
-    pinMode(SLDD_LED_C, OUTPUT);
-    pinMode(SLDD_LED_D, OUTPUT);
-    pinMode(SLDD_LED_E, OUTPUT);
-    pinMode(SLDD_LED_F, OUTPUT);
-    pinMode(SLDD_LED_G, OUTPUT);
+void SDigLedDisplay::setup(uint8_t ledA,
+                           uint8_t ledB,
+                           uint8_t ledC,
+                           uint8_t ledD,
+                           uint8_t ledE,
+                           uint8_t ledF,
+                           uint8_t ledG){
+    SDigLedDisplay::_ledA = ledA;
+    SDigLedDisplay::_ledB = ledB;
+    SDigLedDisplay::_ledC = ledC;
+    SDigLedDisplay::_ledD = ledD;
+    SDigLedDisplay::_ledE = ledE;
+    SDigLedDisplay::_ledF = ledF;
+    SDigLedDisplay::_ledG = ledG;
+    pinMode(SDigLedDisplay::_ledA, OUTPUT);
+    pinMode(SDigLedDisplay::_ledB, OUTPUT);
+    pinMode(SDigLedDisplay::_ledC, OUTPUT);
+    pinMode(SDigLedDisplay::_ledD, OUTPUT);
+    pinMode(SDigLedDisplay::_ledE, OUTPUT);
+    pinMode(SDigLedDisplay::_ledF, OUTPUT);
+    pinMode(SDigLedDisplay::_ledG, OUTPUT);
 }
 void SDigLedDisplay::printRaw(uint8_t leds){
-    digitalWrite(SLDD_LED_A, leds & 0b00000001);
-    digitalWrite(SLDD_LED_B, leds & 0b00000010);
-    digitalWrite(SLDD_LED_C, leds & 0b00000100);
-    digitalWrite(SLDD_LED_D, leds & 0b00001000);
-    digitalWrite(SLDD_LED_E, leds & 0b00010000);
-    digitalWrite(SLDD_LED_F, leds & 0b00100000);
-    digitalWrite(SLDD_LED_G, leds & 0b01000000);
+    digitalWrite(SDigLedDisplay::_ledA, leds & 0b00000001);
+    digitalWrite(SDigLedDisplay::_ledB, leds & 0b00000010);
+    digitalWrite(SDigLedDisplay::_ledC, leds & 0b00000100);
+    digitalWrite(SDigLedDisplay::_ledD, leds & 0b00001000);
+    digitalWrite(SDigLedDisplay::_ledE, leds & 0b00010000);
+    digitalWrite(SDigLedDisplay::_ledF, leds & 0b00100000);
+    digitalWrite(SDigLedDisplay::_ledG, leds & 0b01000000);
 }
 void SDigLedDisplay::print0(){
     //               _GFEDCBA

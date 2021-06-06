@@ -1,17 +1,23 @@
 
 #include <Arduino.h>
 
-#define SLDD_LED_A 2
-#define SLDD_LED_B 3
-#define SLDD_LED_C 4
-#define SLDD_LED_D 7
-#define SLDD_LED_E 8
-#define SLDD_LED_F 12
-#define SLDD_LED_G 13
-
 class SDigLedDisplay{
+    private:
+        uint8_t _ledA = 0;
+        uint8_t _ledB = 0;
+        uint8_t _ledC = 0;
+        uint8_t _ledD = 0;
+        uint8_t _ledE = 0;
+        uint8_t _ledF = 0;
+        uint8_t _ledG = 0;
     public:
-        void setup();
+        void setup(uint8_t ledA,
+                   uint8_t ledB,
+                   uint8_t ledC,
+                   uint8_t ledD,
+                   uint8_t ledE,
+                   uint8_t ledF,
+                   uint8_t ledG);
         void printRaw(uint8_t leds);
         void print0();
         void print1();
